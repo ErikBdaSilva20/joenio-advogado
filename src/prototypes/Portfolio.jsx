@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import heroBg from '../assets/portfolio/hero-bg.png'
 import profissional from '../assets/portfolio/profissional.png'
 import logoCompleto from '../assets/portfolio/logo-completo.png'
-import emblemaJuridico from '../assets/portfolio/emblema-juridico.png'
+import emblemaCircular from '../assets/portfolio/emblema-circular.png'
 import iconEstudos from '../assets/portfolio/icons/icon-estudos.png'
 import iconSobre from '../assets/portfolio/icons/icon-sobre.png'
 import iconContato from '../assets/portfolio/icons/icon-contato.png'
@@ -33,16 +34,48 @@ const FORMACAO = [
 ]
 
 const PILARES = [
-  { titulo: 'Ética', texto: 'Cada caso conduzido com transparência e responsabilidade.' },
-  { titulo: 'Transparência', texto: 'Clareza em cada etapa da estratégia tributária.' },
-  { titulo: 'Confiança', texto: 'Construída com atitude, não só com conhecimento técnico.' },
+  {
+    titulo: 'Ética',
+    texto: 'Cada caso conduzido com transparência e responsabilidade.',
+    detalhe: 'As decisões são sempre explicadas antes de executadas — nenhuma medida é tomada sem o cliente entender o porquê e o risco envolvido.',
+  },
+  {
+    titulo: 'Transparência',
+    texto: 'Clareza em cada etapa da estratégia tributária.',
+    detalhe: 'Relatórios simples, sem juridiquês, mostrando o que foi feito, o que está em andamento e o que ainda falta — para o cliente nunca ficar no escuro.',
+  },
+  {
+    titulo: 'Confiança',
+    texto: 'Construída com atitude, não só com conhecimento técnico.',
+    detalhe: 'Presença ativa em todas as fases do processo, com retorno rápido e previsibilidade — a confiança vem do acompanhamento próximo, não só do resultado final.',
+  },
 ]
 
 const METODO = [
-  { passo: '01', titulo: 'Diagnóstico', texto: 'Mapeamento completo da estrutura tributária da empresa, antes de qualquer decisão.' },
-  { passo: '02', titulo: 'Estratégia', texto: 'Definição do plano de ação com foco em economia legal e segurança jurídica.' },
-  { passo: '03', titulo: 'Execução', texto: 'Implementação das medidas de planejamento, compliance ou recuperação de créditos.' },
-  { passo: '04', titulo: 'Acompanhamento', texto: 'Monitoramento contínuo para manter a empresa sempre em dia e protegida.' },
+  {
+    passo: '01',
+    titulo: 'Diagnóstico',
+    texto: 'Mapeamento completo da estrutura tributária da empresa, antes de qualquer decisão.',
+    detalhe: 'Levantamento do regime tributário, histórico de recolhimentos e obrigações acessórias para identificar riscos e oportunidades reais.',
+  },
+  {
+    passo: '02',
+    titulo: 'Estratégia',
+    texto: 'Definição do plano de ação com foco em economia legal e segurança jurídica.',
+    detalhe: 'Cada medida é avaliada pelo retorno financeiro e pelo risco jurídico, priorizando o que traz mais segurança no menor prazo.',
+  },
+  {
+    passo: '03',
+    titulo: 'Execução',
+    texto: 'Implementação das medidas de planejamento, compliance ou recuperação de créditos.',
+    detalhe: 'Condução de todas as etapas administrativas e, quando necessário, judiciais, com prazos e responsáveis bem definidos.',
+  },
+  {
+    passo: '04',
+    titulo: 'Acompanhamento',
+    texto: 'Monitoramento contínuo para manter a empresa sempre em dia e protegida.',
+    detalhe: 'Revisões periódicas para captar mudanças na legislação e ajustar a estratégia antes que virem passivo.',
+  },
 ]
 
 const svgProps = {
@@ -81,6 +114,12 @@ const ICONS = {
   ),
 }
 
+const whatsappIcon = (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+    <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.1 1.5-.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z" />
+  </svg>
+)
+
 const SERVICOS_GRUPOS = [
   {
     categoria: 'Planejamento & Compliance',
@@ -105,7 +144,7 @@ const SERVICOS_GRUPOS = [
     categoria: 'Pessoa Física',
     icon: ICONS.pessoaFisica,
     itens: [
-      { titulo: 'Isenção de IR por Doença Grave', texto: 'Para aposentados e pensionistas enquadrados nas hipóteses legais de isenção.' },
+      { titulo: 'Isenção de IR por Doença Grave', texto: 'Para aposentados e pensionistas enquadrados nas hipóteses legais de isenção. Análise do histórico e condução do requerimento administrativo ou judicial para reaver valores retidos indevidamente, com acompanhamento até a restituição.' },
     ],
   },
   {
@@ -125,9 +164,21 @@ const SERVICOS_GRUPOS = [
 ]
 
 const SEGMENTOS = [
-  { titulo: 'Empresários', texto: 'De 25 a 70 anos, em capitais, regiões metropolitanas e sedes municipais — planejamento, compliance e recuperação de créditos.' },
-  { titulo: 'Aposentados e Pensionistas', texto: 'Enquadrados nas hipóteses legais de isenção de Imposto de Renda por doença grave.' },
-  { titulo: 'Clínicas e Hospitais', texto: 'Clínicas médicas e odontológicas com possibilidade de equiparação hospitalar.' },
+  {
+    titulo: 'Empresários',
+    texto: 'De 25 a 70 anos, em capitais, regiões metropolitanas e sedes municipais — planejamento, compliance e recuperação de créditos.',
+    detalhe: 'Empresas do Simples Nacional, Lucro Presumido ou Lucro Real que querem pagar só o que devem e recuperar o que já pagaram a mais.',
+  },
+  {
+    titulo: 'Aposentados e Pensionistas',
+    texto: 'Enquadrados nas hipóteses legais de isenção de Imposto de Renda por doença grave.',
+    detalhe: 'Quem teve o IR retido indevidamente sobre proventos de aposentadoria ou pensão pode reaver os valores dos últimos anos.',
+  },
+  {
+    titulo: 'Clínicas e Hospitais',
+    texto: 'Clínicas médicas e odontológicas com possibilidade de equiparação hospitalar.',
+    detalhe: 'Estrutura e serviços avaliados para enquadramento correto no regime tributário mais vantajoso, dentro da lei.',
+  },
 ]
 
 /** Badge circular navy + traço dourado, para seções sem ícone pronto no acervo — segue o mesmo tamanho/forma dos ícones em PNG. */
@@ -158,22 +209,24 @@ function SectionLabel({ children, dark = false, icon }) {
 /** Card translúcido com borda dourada fina, para uso sobre fundo azul (igual aos carrosséis do Instagram). */
 function NavyCard({ children, className = '' }) {
   return (
-    <div className={`rounded-[var(--radius-card,20px)] border border-[var(--color-gold)]/40 bg-white/[0.04] p-7 backdrop-blur-sm ${className}`}>
+    <div className={`rounded-[var(--radius-card,20px)] border border-[var(--color-gold)]/40 bg-white/[0.04] p-8 backdrop-blur-sm transition hover:border-[var(--color-gold)]/70 hover:bg-white/[0.07] sm:p-9 ${className}`}>
       {children}
     </div>
   )
 }
 
-export default function Portfolio({ onVoltar }) {
+export default function Portfolio() {
+  const [menuAberto, setMenuAberto] = useState(false)
+
   return (
     <div className="font-brand min-h-screen bg-[var(--color-primary)] text-white">
       {/* Header */}
-      <header className="sticky top-0 z-20 border-b border-[var(--color-gold)]/30 bg-[var(--color-primary)]/95 px-8 py-4 backdrop-blur sm:px-12">
+      <header className="sticky top-0 z-20 border-b border-[var(--color-gold)]/30 bg-[var(--color-primary)]/95 px-6 py-4 backdrop-blur sm:px-12">
         <div className={`${CONTAINER} flex items-center justify-between`}>
           <div className="flex items-center gap-3">
             <img src={logoCompleto} alt="JS Advocacia" className="h-10 w-10 rounded-full border border-[var(--color-gold)]/50 object-cover" />
             <div className="leading-tight">
-              <p className="text-sm font-bold tracking-wide text-white">JOENIO DE SOUSA SANTOS</p>
+              <p className="text-xs font-bold tracking-wide text-white sm:text-sm">JOENIO DE SOUSA SANTOS</p>
               <p className="text-xs text-slate-300">Advogado Tributarista</p>
             </div>
           </div>
@@ -189,50 +242,82 @@ export default function Portfolio({ onVoltar }) {
               href="https://wa.me/5588996805117"
               target="_blank"
               rel="noreferrer"
-              className="rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-gold-light)]"
+              className="hidden rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-gold-light)] sm:inline-block"
             >
               WhatsApp
             </a>
             <button
-              onClick={onVoltar}
-              className="rounded-[var(--radius-pill,999px)] border border-white/50 px-4 py-2 text-xs font-semibold text-white transition hover:bg-white hover:text-[var(--color-primary)]"
+              type="button"
+              onClick={() => setMenuAberto((v) => !v)}
+              aria-expanded={menuAberto}
+              aria-label="Abrir menu"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-gold)]/50 text-white md:hidden"
             >
-              ← Voltar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="h-5 w-5">
+                {menuAberto ? <path d="M5 5l14 14M19 5 5 19" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+              </svg>
             </button>
           </div>
         </div>
+
+        {menuAberto && (
+          <nav className={`${CONTAINER} mt-4 flex flex-col gap-4 border-t border-[var(--color-gold)]/20 pt-4 md:hidden`}>
+            {NAV.map((n) => (
+              <a
+                key={n.href}
+                href={n.href}
+                onClick={() => setMenuAberto(false)}
+                className="text-sm font-semibold uppercase tracking-wide text-slate-200 hover:text-[var(--color-gold-light)]"
+              >
+                {n.label}
+              </a>
+            ))}
+            <a
+              href="https://wa.me/5588996805117"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block w-fit rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-gold-light)]"
+            >
+              WhatsApp
+            </a>
+          </nav>
+        )}
       </header>
 
       <main>
-        {/* Hero */}
-        <section
-          className="relative isolate overflow-hidden"
-          style={{
-            backgroundImage: `linear-gradient(110deg, rgba(7,31,69,0.5), rgba(10,47,102,0.4)), url(${heroBg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className={`${CONTAINER} relative grid gap-12 px-8 py-20 sm:px-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch lg:py-0`}>
-            <div className="relative flex flex-col justify-center py-8 lg:py-28">
-              {/* Emblema em marca d'água atrás do nome, à esquerda — PNG com fundo transparente, sem precisar de invert */}
-              <img
-                src={emblemaJuridico}
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute left-[30%] top-1/2 -z-10 w-[480px] max-w-none -translate-x-1/2 -translate-y-1/2 select-none opacity-25 sm:w-[640px]"
-              />
+        {/* Hero — banner limpo (bannerHero) a 0.8 + emblema circular a 0.4 à direita */}
+        <section className="relative isolate overflow-hidden bg-[var(--color-primary-dark)]">
+          {/* Camada 1: banner — atrás de tudo */}
+          <img
+            src={heroBg}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
+            style={{ zIndex: 0, opacity: 0.8 }}
+          />
+
+          {/* Camada 2: emblema circular — independente do banner, acima dele */}
+          <img
+            src={emblemaCircular}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 top-1/2 w-[420px] max-w-none -translate-y-1/2 select-none sm:w-[540px] lg:w-[720px]"
+            style={{ zIndex: 1, opacity: 0.2 }}
+          />
+
+          <div className={`${CONTAINER} relative z-10 grid gap-10 px-6 pt-16 pb-0 sm:gap-12 sm:px-12 sm:pt-20 sm:pb-0 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:py-0`}>
+            <div className="relative z-10 flex flex-col justify-center py-4 sm:py-8 lg:py-28">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-gold-light)]">
                 Planejar · Proteger · Otimizar
               </p>
-              <h1 className="font-display mt-5 text-4xl italic font-semibold leading-tight text-white sm:text-6xl">
+              <h1 className="font-display mt-5 text-3xl italic font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
                 Joenio de Sousa Santos
               </h1>
               <span className="mt-4 block h-px w-16 bg-[var(--color-gold)]" />
-              <p className="mt-3 text-lg font-semibold text-[var(--color-gold-light)] sm:text-xl">
+              <p className="font-display mt-4 text-base font-semibold text-[var(--color-gold-light)] sm:text-lg md:text-xl">
                 Advogado Tributarista
               </p>
-              <p className="mt-5 max-w-lg text-sm leading-relaxed text-slate-200 sm:text-base">
+              <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-200 sm:text-base">
                 Atuação tributária estratégica e preventiva: identifico créditos que sua
                 empresa já tem direito, mas nunca recuperou — antes que o problema apareça.
               </p>
@@ -241,27 +326,26 @@ export default function Portfolio({ onVoltar }) {
                   href="https://wa.me/5588996805117"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-gold-light)]"
+                  className="inline-flex items-center gap-2 rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-gold-light)] sm:px-7"
                 >
-                  Falar no WhatsApp →
+                  {whatsappIcon}
+                  Falar no WhatsApp
                 </a>
                 <a
                   href="#servicos"
-                  className="inline-block rounded-[var(--radius-pill,999px)] border border-white/60 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[var(--color-primary)]"
+                  className="inline-block rounded-[var(--radius-pill,999px)] border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[var(--color-primary)] sm:px-7"
                 >
                   Ver serviços
                 </a>
               </div>
             </div>
 
-            {/* Foto com sangria total, sem moldura flutuando no vazio */}
-            <div className="relative -mx-8 h-[420px] sm:-mx-12 lg:mx-0 lg:h-auto lg:min-h-[640px]">
-              <div className="pointer-events-none absolute -left-16 top-1/3 h-72 w-72 rounded-full bg-[var(--color-gold)]/20 blur-3xl" />
+            {/* Foto sangrando direto no fundo navy, sem moldura/caixa. Máscara lateral só entra em lg, onde a coluna é estreita o bastante pra fazer sentido — em telas menores corta os ombros. */}
+            <div className="relative z-10 -mx-6 h-[360px] sm:-mx-12 sm:h-[460px] md:h-[520px] lg:mx-0 lg:h-[660px]">
               <img
                 src={profissional}
                 alt="Dr. Joenio de Sousa Santos"
-                className="absolute inset-0 h-full w-full object-cover object-top lg:left-10"
-                style={{ maskImage: 'linear-gradient(to bottom, transparent 0, black 8%)' }}
+                className="absolute inset-0 h-full w-full object-cover object-top [mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] lg:[mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[mask-composite:intersect] lg:[-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[-webkit-mask-composite:source-in]"
               />
             </div>
           </div>
@@ -315,12 +399,13 @@ export default function Portfolio({ onVoltar }) {
         <section id="metodo" className="textured-navy px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
             <SectionLabel icon={ICONS.metodo}>Como funciona</SectionLabel>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
               {METODO.map((m) => (
                 <NavyCard key={m.passo}>
-                  <span className="font-brand text-2xl font-bold text-[var(--color-gold)]">{m.passo}</span>
-                  <h3 className="mt-3 text-sm font-bold text-white">{m.titulo}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-slate-300">{m.texto}</p>
+                  <span className="font-brand text-3xl font-bold text-[var(--color-gold)]">{m.passo}</span>
+                  <h3 className="mt-4 text-lg font-bold text-white">{m.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{m.texto}</p>
+                  <p className="mt-3 border-t border-white/10 pt-3 text-sm leading-relaxed text-slate-400">{m.detalhe}</p>
                 </NavyCard>
               ))}
             </div>
@@ -334,8 +419,9 @@ export default function Portfolio({ onVoltar }) {
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
               {PILARES.map((p) => (
                 <NavyCard key={p.titulo}>
-                  <h3 className="text-sm font-bold text-white">{p.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{p.texto}</p>
+                  <h3 className="text-lg font-bold text-white">{p.titulo}</h3>
+                  <p className="mt-2 text-sm font-semibold leading-relaxed text-[var(--color-gold-light)]">{p.texto}</p>
+                  <p className="mt-3 border-t border-white/10 pt-3 text-sm leading-relaxed text-slate-300">{p.detalhe}</p>
                 </NavyCard>
               ))}
             </div>
@@ -347,54 +433,71 @@ export default function Portfolio({ onVoltar }) {
           <div className={CONTAINER}>
             <SectionLabel icon={ICONS.servicos}>Serviços</SectionLabel>
 
-            <div className="mt-10 space-y-14">
-              {SERVICOS_GRUPOS.map((grupo) => (
-                <div key={grupo.categoria}>
+            <div className="mt-10 space-y-16">
+              {SERVICOS_GRUPOS.map((grupo) => {
+                const categoriaLabel = (
                   <div className="flex items-center gap-3">
                     {typeof grupo.icon === 'string' ? (
-                      <img src={grupo.icon} alt="" aria-hidden="true" className="h-7 w-7 rounded-full" />
+                      <img src={grupo.icon} alt="" aria-hidden="true" className="h-9 w-9 rounded-full" />
                     ) : grupo.icon ? (
-                      <IconBadge className="h-7 w-7">{grupo.icon}</IconBadge>
+                      <IconBadge className="h-9 w-9">{grupo.icon}</IconBadge>
                     ) : null}
-                    <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-gold-light)]">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-gold-light)]">
                       {grupo.categoria}
                     </h3>
                   </div>
-                  <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {grupo.itens.map((s) => (
-                      <NavyCard key={s.titulo} className="p-6">
-                        <h4 className="text-sm font-bold text-white">{s.titulo}</h4>
-                        <p className="mt-1.5 text-sm leading-relaxed text-slate-300">{s.texto}</p>
+                )
+
+                if (grupo.itens.length === 1) {
+                  const item = grupo.itens[0]
+                  return (
+                    <div key={grupo.categoria}>
+                      {categoriaLabel}
+                      <NavyCard className="mt-5 sm:flex sm:items-center sm:gap-8">
+                        <h4 className="text-xl font-bold text-white sm:w-1/3 sm:shrink-0">{item.titulo}</h4>
+                        <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:mt-0 sm:border-l sm:border-white/10 sm:pl-8 sm:text-base">
+                          {item.texto}
+                        </p>
                       </NavyCard>
-                    ))}
+                    </div>
+                  )
+                }
+
+                return (
+                  <div key={grupo.categoria}>
+                    {categoriaLabel}
+                    <div className="mt-5 grid gap-6 sm:grid-cols-2">
+                      {grupo.itens.map((s) => (
+                        <NavyCard key={s.titulo}>
+                          <h4 className="text-base font-bold text-white">{s.titulo}</h4>
+                          <p className="mt-2 text-sm leading-relaxed text-slate-300">{s.texto}</p>
+                        </NavyCard>
+                      ))}
+                    </div>
                   </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Para quem + Parcerias + Frase de impacto — bloco único claro, mesmo estilo do "Sobre" */}
+        <section id="publico" className="relative border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
+          <div className={CONTAINER}>
+            <SectionLabel dark icon={ICONS.publico}>Para quem trabalho</SectionLabel>
+            <div className="mt-10 grid gap-8 sm:grid-cols-3">
+              {SEGMENTOS.map((s) => (
+                <div key={s.titulo} className="border-l-2 border-[var(--color-gold)] pl-5">
+                  <h3 className="text-lg font-bold text-[var(--color-primary-dark)]">{s.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.texto}</p>
+                  <p className="mt-3 border-t border-[var(--color-silver)] pt-3 text-sm leading-relaxed text-slate-500">{s.detalhe}</p>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
 
-        {/* Para quem */}
-        <section id="publico" className="bg-[var(--color-primary-dark)] px-8 py-24 sm:px-12">
-          <div className={CONTAINER}>
-            <SectionLabel icon={ICONS.publico}>Para quem trabalho</SectionLabel>
-            <div className="mt-10 grid gap-6 sm:grid-cols-3">
-              {SEGMENTOS.map((s) => (
-                <NavyCard key={s.titulo}>
-                  <h3 className="text-sm font-bold text-white">{s.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{s.texto}</p>
-                </NavyCard>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Parcerias */}
-        <section className="textured-navy px-8 pb-24 sm:px-12">
-          <div className={CONTAINER}>
-            <div className="flex flex-col items-start gap-4 rounded-[var(--radius-card,20px)] border border-[var(--color-gold)] bg-[var(--color-gold)]/10 px-8 py-8 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm leading-relaxed text-white sm:max-w-xl">
-                <span className="font-bold text-[var(--color-gold-light)]">Parcerias:</span> aberto a
+            <div className="mt-14 flex flex-col items-start gap-4 rounded-[var(--radius-card,20px)] border border-[var(--color-gold)] bg-[var(--color-primary)]/[0.04] px-8 py-8 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm leading-relaxed text-[var(--color-primary-dark)] sm:max-w-xl">
+                <span className="font-bold text-[var(--color-gold)]">Parcerias:</span> aberto a
                 parcerias entre advogados tributaristas e contadores interessados em atuação conjunta.
               </p>
               <a
@@ -406,14 +509,9 @@ export default function Portfolio({ onVoltar }) {
                 Conversar →
               </a>
             </div>
-          </div>
-        </section>
 
-        {/* Frase de impacto */}
-        <section className="bg-[var(--color-primary-dark)] px-8 py-24 text-center sm:px-12">
-          <div className={CONTAINER}>
-            <div className="mx-auto max-w-2xl rounded-[var(--radius-card,20px)] border border-[var(--color-gold)]/60 px-8 py-10">
-              <p className="text-xl font-bold leading-relaxed text-white sm:text-2xl">
+            <div className="mt-10 border-t border-[var(--color-silver)] pt-10 text-center">
+              <p className="mx-auto max-w-2xl text-xl font-bold leading-relaxed text-[var(--color-primary-dark)] sm:text-2xl">
                 "A atuação tributária não deve começar quando o problema aparece. Deve começar antes."
               </p>
             </div>
