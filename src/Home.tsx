@@ -23,7 +23,7 @@ function Home({ onSelecionar }: { onSelecionar: (c: Categoria) => void }) {
     <div className="flex min-h-screen flex-col items-center justify-center gap-10 bg-slate-50 px-6">
       <div className="text-center">
         <h1 className="text-3xl font-semibold text-slate-900">
-          Joenio Advocacia
+          JS Advocacia e Consultoria Tributária
         </h1>
         <p className="mt-2 text-slate-500">
           Escolha uma categoria de protótipo para visualizar

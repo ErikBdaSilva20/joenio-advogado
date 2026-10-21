@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+/* Brand tokens extracted from acervodados/README.md + acervodados/index.css
+   (JS Advocacia e Consultoria Tributária — navy / gold / white, minimalist, formal) */
+:root {
+  --color-primary: #0a2f66;
+  --color-primary-dark: #071f45;
+  --color-primary-light: #16407f;
+  --color-gold: #b8872f;
+  --color-gold-light: #d4a857;
+  --color-silver: #e8eaee;
+  --color-ink: #1a1a1a;
+  --font-brand: 'Poppins', 'Montserrat', system-ui, sans-serif;
+  --radius-card: 20px;
+  --radius-pill: 999px;
+}
+
+.font-brand {
+  font-family: var(--font-brand);
+}
+
+/* Subtle grain over the navy sections, matching the Instagram carousel covers */
+.textured-navy {
+  background-color: var(--color-primary);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
