@@ -345,7 +345,7 @@ export default function Portfolio() {
               <img
                 src={profissional}
                 alt="Dr. Joenio de Sousa Santos"
-                className="absolute inset-0 h-full w-full object-cover object-top [mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] lg:[mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[mask-composite:intersect] lg:[-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[-webkit-mask-composite:source-in]"
+                className="absolute inset-0 h-full w-full object-cover object-top [mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] min-[800px]:[mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%)] min-[800px]:[-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%)] lg:[mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[mask-composite:intersect] lg:[-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[-webkit-mask-composite:source-in]"
               />
             </div>
           </div>
