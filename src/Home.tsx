@@ -16,6 +16,11 @@ const CARDS: { id: Categoria; titulo: string; descricao: string }[] = [
     titulo: 'Contencioso',
     descricao: 'Página focada em casos e atuação em processos judiciais.',
   },
+  {
+    id: 'portfolio',
+    titulo: 'Portfólio',
+    descricao: 'SPA de portfólio profissional com hero fotográfica e identidade visual completa.',
+  },
 ]
 
 function Home({ onSelecionar }: { onSelecionar: (c: Categoria) => void }) {
