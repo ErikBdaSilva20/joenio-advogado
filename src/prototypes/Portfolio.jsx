@@ -21,60 +21,60 @@ const NAV = [
 ]
 
 const CREDENCIAIS = [
-  { titulo: 'Pós-graduado', texto: 'Direito Tributário — Facuminas' },
-  { titulo: 'Graduado em Direito', texto: 'UNINTA' },
-  { titulo: 'Ciências Biológicas', texto: 'Graduando — UECE' },
-  { titulo: 'Atuação', texto: 'Estratégica e preventiva' },
+  { titulo: 'Lorem Ipsum', texto: 'Lorem dolor sit — Nome Instituição' },
+  { titulo: 'Lorem Ipsum', texto: 'Nome Instituição' },
+  { titulo: 'Lorem Ipsum', texto: 'Lorem — Nome Instituição' },
+  { titulo: 'Lorem Ipsum', texto: 'Lorem dolor sit amet' },
 ]
 
 const FORMACAO = [
-  { ano: 'Formação', titulo: 'Graduação em Direito', local: 'UNINTA' },
-  { ano: 'Especialização', titulo: 'Pós-graduação em Direito Tributário', local: 'Facuminas' },
-  { ano: 'Em curso', titulo: 'Ciências Biológicas', local: 'UECE' },
+  { ano: 'Lorem', titulo: 'Lorem ipsum dolor sit amet', local: 'Nome Instituição' },
+  { ano: 'Lorem', titulo: 'Lorem ipsum dolor sit amet consectetur', local: 'Nome Instituição' },
+  { ano: 'Lorem', titulo: 'Lorem ipsum dolor', local: 'Nome Instituição' },
 ]
 
 const PILARES = [
   {
-    titulo: 'Ética',
-    texto: 'Cada caso conduzido com transparência e responsabilidade.',
-    detalhe: 'As decisões são sempre explicadas antes de executadas — nenhuma medida é tomada sem o cliente entender o porquê e o risco envolvido.',
+    titulo: 'Lorem',
+    texto: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
+    detalhe: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — ut enim ad minim veniam quis nostrud exercitation ullamco.',
   },
   {
-    titulo: 'Transparência',
-    texto: 'Clareza em cada etapa da estratégia tributária.',
-    detalhe: 'Relatórios simples, sem juridiquês, mostrando o que foi feito, o que está em andamento e o que ainda falta — para o cliente nunca ficar no escuro.',
+    titulo: 'Ipsum',
+    texto: 'Duis aute irure dolor in reprehenderit in voluptate velit.',
+    detalhe: 'Esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident — sunt in culpa qui officia deserunt.',
   },
   {
-    titulo: 'Confiança',
-    texto: 'Construída com atitude, não só com conhecimento técnico.',
-    detalhe: 'Presença ativa em todas as fases do processo, com retorno rápido e previsibilidade — a confiança vem do acompanhamento próximo, não só do resultado final.',
+    titulo: 'Dolor',
+    texto: 'Mollit anim id est laborum ut perspiciatis unde omnis.',
+    detalhe: 'Iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis.',
   },
 ]
 
 const METODO = [
   {
     passo: '01',
-    titulo: 'Diagnóstico',
-    texto: 'Mapeamento completo da estrutura tributária da empresa, antes de qualquer decisão.',
-    detalhe: 'Levantamento do regime tributário, histórico de recolhimentos e obrigações acessórias para identificar riscos e oportunidades reais.',
+    titulo: 'Lorem',
+    texto: 'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do.',
+    detalhe: 'Eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud.',
   },
   {
     passo: '02',
-    titulo: 'Estratégia',
-    texto: 'Definição do plano de ação com foco em economia legal e segurança jurídica.',
-    detalhe: 'Cada medida é avaliada pelo retorno financeiro e pelo risco jurídico, priorizando o que traz mais segurança no menor prazo.',
+    titulo: 'Ipsum',
+    texto: 'Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    detalhe: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
   {
     passo: '03',
-    titulo: 'Execução',
-    texto: 'Implementação das medidas de planejamento, compliance ou recuperação de créditos.',
-    detalhe: 'Condução de todas as etapas administrativas e, quando necessário, judiciais, com prazos e responsáveis bem definidos.',
+    titulo: 'Dolor',
+    texto: 'Excepteur sint occaecat cupidatat non proident sunt in culpa.',
+    detalhe: 'Qui officia deserunt mollit anim id est laborum ut perspiciatis unde omnis iste natus error sit.',
   },
   {
     passo: '04',
-    titulo: 'Acompanhamento',
-    texto: 'Monitoramento contínuo para manter a empresa sempre em dia e protegida.',
-    detalhe: 'Revisões periódicas para captar mudanças na legislação e ajustar a estratégia antes que virem passivo.',
+    titulo: 'Sit Amet',
+    texto: 'Voluptatem accusantium doloremque laudantium totam rem aperiam eaque.',
+    detalhe: 'Ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim.',
   },
 ]
 
@@ -122,62 +122,62 @@ const whatsappIcon = (
 
 const SERVICOS_GRUPOS = [
   {
-    categoria: 'Planejamento & Compliance',
+    categoria: 'Lorem Ipsum',
     icon: iconDireito,
     itens: [
-      { titulo: 'Planejamento Tributário', texto: 'Análise da estrutura fiscal para otimização da carga tributária, redução de riscos e melhoria da eficiência fiscal.' },
-      { titulo: 'Compliance Tributário', texto: 'Verificação do cumprimento correto das obrigações tributárias principais e acessórias.' },
+      { titulo: 'Lorem Ipsum', texto: 'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.' },
+      { titulo: 'Dolor Sit Amet', texto: 'Incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.' },
     ],
   },
   {
-    categoria: 'Recuperação de Créditos Tributários',
+    categoria: 'Consectetur Adipiscing',
     icon: iconCredito,
     itens: [
-      { titulo: 'Simples Nacional', texto: 'Identificação e recuperação de créditos pagos indevidamente ou a maior nesse regime.' },
-      { titulo: 'Lucro Presumido', texto: 'Levantamento de valores recuperáveis observando os requisitos legais do regime.' },
-      { titulo: 'Lucro Real', texto: 'Análise detalhada da apuração para recuperação de créditos tributários.' },
-      { titulo: 'Produtos Monofásicos', texto: 'Recuperação tributária para empresas que comercializam produtos com tributação concentrada.' },
-      { titulo: 'ICMS-ST', texto: 'Análise de operações sujeitas à substituição tributária em busca de valores indevidos ou restituíveis.' },
+      { titulo: 'Lorem', texto: 'Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.' },
+      { titulo: 'Ipsum', texto: 'Consequat duis aute irure dolor in reprehenderit in voluptate velit.' },
+      { titulo: 'Dolor', texto: 'Esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.' },
+      { titulo: 'Sit', texto: 'Cupidatat non proident sunt in culpa qui officia deserunt mollit anim.' },
+      { titulo: 'Amet', texto: 'Id est laborum ut perspiciatis unde omnis iste natus error sit voluptatem.' },
     ],
   },
   {
-    categoria: 'Pessoa Física',
+    categoria: 'Lorem Dolor',
     icon: ICONS.pessoaFisica,
     itens: [
-      { titulo: 'Isenção de IR por Doença Grave', texto: 'Para aposentados e pensionistas enquadrados nas hipóteses legais de isenção. Análise do histórico e condução do requerimento administrativo ou judicial para reaver valores retidos indevidamente, com acompanhamento até a restituição.' },
+      { titulo: 'Lorem Ipsum Dolor Sit Amet', texto: 'Accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore. Veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem.' },
     ],
   },
   {
-    categoria: 'Saúde',
+    categoria: 'Lorem',
     icon: iconSaude,
     itens: [
-      { titulo: 'Equiparação Hospitalar', texto: 'Aplicação do tratamento tributário de serviços hospitalares a clínicas médicas e odontológicas (IRPJ/CSLL).' },
+      { titulo: 'Lorem Ipsum Dolor', texto: 'Quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.' },
     ],
   },
   {
-    categoria: 'Contencioso',
+    categoria: 'Ipsum Dolor',
     icon: ICONS.contencioso,
     itens: [
-      { titulo: 'Defesa em Execuções Fiscais', texto: 'Defesa técnica de empresas e contribuintes cobrados judicialmente por dívida ativa.' },
+      { titulo: 'Lorem Ipsum', texto: 'Eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem.' },
     ],
   },
 ]
 
 const SEGMENTOS = [
   {
-    titulo: 'Empresários',
-    texto: 'De 25 a 70 anos, em capitais, regiões metropolitanas e sedes municipais — planejamento, compliance e recuperação de créditos.',
-    detalhe: 'Empresas do Simples Nacional, Lucro Presumido ou Lucro Real que querem pagar só o que devem e recuperar o que já pagaram a mais.',
+    titulo: 'Lorem',
+    texto: 'Ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.',
+    detalhe: 'Ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.',
   },
   {
-    titulo: 'Aposentados e Pensionistas',
-    texto: 'Enquadrados nas hipóteses legais de isenção de Imposto de Renda por doença grave.',
-    detalhe: 'Quem teve o IR retido indevidamente sobre proventos de aposentadoria ou pensão pode reaver os valores dos últimos anos.',
+    titulo: 'Ipsum',
+    texto: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
+    detalhe: 'Eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia.',
   },
   {
-    titulo: 'Clínicas e Hospitais',
-    texto: 'Clínicas médicas e odontológicas com possibilidade de equiparação hospitalar.',
-    detalhe: 'Estrutura e serviços avaliados para enquadramento correto no regime tributário mais vantajoso, dentro da lei.',
+    titulo: 'Dolor',
+    texto: 'Deserunt mollit anim id est laborum ut perspiciatis unde omnis iste natus.',
+    detalhe: 'Error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo.',
   },
 ]
 
@@ -224,10 +224,10 @@ export default function Portfolio() {
       <header className="sticky top-0 z-20 border-b border-[var(--color-gold)]/30 bg-[var(--color-primary)]/95 px-6 py-4 backdrop-blur sm:px-12">
         <div className={`${CONTAINER} flex items-center justify-between`}>
           <div className="flex items-center gap-3">
-            <img src={logoCompleto} alt="JS Advocacia" className="h-10 w-10 rounded-full border border-[var(--color-gold)]/50 object-cover" />
+            <img src={logoCompleto} alt="Lorem Ipsum" className="h-10 w-10 rounded-full border border-[var(--color-gold)]/50 object-cover" />
             <div className="leading-tight">
-              <p className="text-xs font-bold tracking-wide text-white sm:text-sm">JOENIO DE SOUSA SANTOS</p>
-              <p className="text-xs text-slate-300">Advogado Tributarista</p>
+              <p className="text-xs font-bold tracking-wide text-white sm:text-sm">NOME SOBRENOME</p>
+              <p className="text-xs text-slate-300">Lorem Ipsum Dolor</p>
             </div>
           </div>
           <nav className="hidden items-center gap-7 md:flex">
@@ -239,7 +239,7 @@ export default function Portfolio() {
           </nav>
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/5588996805117"
+              href="https://wa.me/5500000000000"
               target="_blank"
               rel="noreferrer"
               className="hidden rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-gold-light)] sm:inline-block"
@@ -273,7 +273,7 @@ export default function Portfolio() {
               </a>
             ))}
             <a
-              href="https://wa.me/5588996805117"
+              href="https://wa.me/5500000000000"
               target="_blank"
               rel="noreferrer"
               className="inline-block w-fit rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-gold-light)]"
@@ -308,22 +308,22 @@ export default function Portfolio() {
           <div className={`${CONTAINER} relative z-10 grid gap-10 px-6 pt-16 pb-0 sm:gap-12 sm:px-12 sm:pt-20 sm:pb-0 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:py-0`}>
             <div className="relative z-10 flex flex-col justify-center py-4 sm:py-8 lg:py-28">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-gold-light)]">
-                Planejar · Proteger · Otimizar
+                Lorem · Ipsum · Dolor
               </p>
               <h1 className="font-display mt-5 text-3xl italic font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-                Joenio de Sousa Santos
+                Nome Sobrenome
               </h1>
               <span className="mt-4 block h-px w-16 bg-[var(--color-gold)]" />
               <p className="font-display mt-4 text-base font-semibold text-[var(--color-gold-light)] sm:text-lg md:text-xl">
-                Advogado Tributarista
+                Lorem Ipsum Dolor Sit
               </p>
               <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-200 sm:text-base">
-                Atuação tributária estratégica e preventiva: identifico créditos que sua
-                empresa já tem direito, mas nunca recuperou — antes que o problema apareça.
+                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua ut enim.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://wa.me/5588996805117"
+                  href="https://wa.me/5500000000000"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-gold-light)] sm:px-7"
@@ -344,7 +344,7 @@ export default function Portfolio() {
             <div className="relative z-10 -mx-6 h-[360px] sm:-mx-12 sm:h-[460px] md:h-[520px] lg:mx-0 lg:h-[660px]">
               <img
                 src={profissional}
-                alt="Dr. Joenio de Sousa Santos"
+                alt="Nome Sobrenome"
                 className="absolute inset-0 h-full w-full object-cover object-top [mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] min-[800px]:[mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%)] min-[800px]:[-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%)] lg:[mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[mask-composite:intersect] lg:[-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[-webkit-mask-composite:source-in]"
               />
             </div>
@@ -369,13 +369,13 @@ export default function Portfolio() {
             <SectionLabel dark icon={iconSobre}>Quem sou eu</SectionLabel>
             <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
               <p className="text-lg leading-relaxed text-[var(--color-primary-dark)]">
-                Cristão, levita da casa de Deus, professor e advogado. Antes de advogado, fui
-                professor — e antes de tudo, a fé guia como conduzo meu trabalho e minha vida.
+                Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.
               </p>
               <p className="text-sm leading-relaxed text-slate-600">
-                Cada etapa da minha formação ensinou a olhar com profundidade antes de agir — hoje
-                aplicada à estratégia tributária de empresários, com visão estratégica, agilidade
-                no atendimento e especialização técnica.
+                Veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur.
               </p>
             </div>
 
@@ -497,11 +497,11 @@ export default function Portfolio() {
 
             <div className="mt-14 flex flex-col items-start gap-4 rounded-[var(--radius-card,20px)] border border-[var(--color-gold)] bg-[var(--color-primary)]/[0.04] px-8 py-8 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm leading-relaxed text-[var(--color-primary-dark)] sm:max-w-xl">
-                <span className="font-bold text-[var(--color-gold)]">Parcerias:</span> aberto a
-                parcerias entre advogados tributaristas e contadores interessados em atuação conjunta.
+                <span className="font-bold text-[var(--color-gold)]">Lorem Ipsum:</span> dolor sit
+                amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.
               </p>
               <a
-                href="https://wa.me/5588996805117"
+                href="https://wa.me/5500000000000"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-block whitespace-nowrap rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-gold-light)]"
@@ -512,7 +512,7 @@ export default function Portfolio() {
 
             <div className="mt-10 border-t border-[var(--color-silver)] pt-10 text-center">
               <p className="mx-auto max-w-2xl text-xl font-bold leading-relaxed text-[var(--color-primary-dark)] sm:text-2xl">
-                "A atuação tributária não deve começar quando o problema aparece. Deve começar antes."
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
               </p>
             </div>
           </div>
@@ -523,16 +523,16 @@ export default function Portfolio() {
       <footer id="contato" className="border-t border-[var(--color-gold)]/30 bg-[var(--color-primary)] px-8 py-16 sm:px-12">
         <div className={`${CONTAINER} grid gap-10 sm:grid-cols-[auto_1fr] sm:items-center`}>
           <div className="flex items-center gap-3">
-            <img src={logoCompleto} alt="JS Advocacia" className="h-14 w-14 rounded-full border border-[var(--color-gold)]/50 object-cover" />
+            <img src={logoCompleto} alt="Lorem Ipsum" className="h-14 w-14 rounded-full border border-[var(--color-gold)]/50 object-cover" />
             <div className="leading-tight">
-              <p className="text-sm font-bold text-white">JS Advocacia</p>
-              <p className="text-xs text-slate-300">e Consultoria Tributária</p>
+              <p className="text-sm font-bold text-white">Lorem Ipsum</p>
+              <p className="text-xs text-slate-300">e Dolor Sit Amet</p>
             </div>
           </div>
 
           <div className="grid gap-4 border-t border-white/10 pt-8 sm:border-t-0 sm:border-l sm:border-white/10 sm:pl-10 sm:pt-0 md:grid-cols-3">
             <a
-              href="https://wa.me/5588996805117"
+              href="https://wa.me/5500000000000"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 text-sm text-slate-300 hover:text-white"
@@ -540,11 +540,11 @@ export default function Portfolio() {
               <img src={iconContato} alt="" aria-hidden="true" className="h-9 w-9 rounded-full" />
               <span>
                 <span className="block text-xs font-bold uppercase tracking-wide text-[var(--color-gold-light)]">WhatsApp</span>
-                (88) 99680-5117
+                (00) 00000-0000
               </span>
             </a>
             <a
-              href="https://instagram.com/dr.joeniosousa.adv"
+              href="https://instagram.com/lorem.ipsum"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 text-sm text-slate-300 hover:text-white"
@@ -552,7 +552,7 @@ export default function Portfolio() {
               <IconBadge className="h-9 w-9">{ICONS.instagram}</IconBadge>
               <span>
                 <span className="block text-xs font-bold uppercase tracking-wide text-[var(--color-gold-light)]">Instagram</span>
-                @dr.joeniosousa.adv
+                @lorem.ipsum
               </span>
             </a>
             <div className="flex items-center gap-3 text-sm text-slate-300">
