@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import heroBg from '../assets/portfolio/hero-bg.png'
 import profissional from '../assets/portfolio/profissional.png'
 import logoBalanca from '../assets/portfolio/logo-balanca.png'
 import emblemaCircular from '../assets/portfolio/emblema-circular.png'
 import iconSobre from '../assets/portfolio/icons/icon-sobre.png'
+import iconEstudos from '../assets/portfolio/icons/icon-estudos.png'
 import iconContato from '../assets/portfolio/icons/icon-contato.png'
+import { AVISO, ETAPAS, FAQ, PILARES, SERVICOS, VALORES } from './conteudo'
 
 const CONTAINER = 'mx-auto max-w-6xl'
 const WHATSAPP_URL = 'https://wa.me/5588996805117'
@@ -13,6 +15,7 @@ const INSTAGRAM_URL = 'https://instagram.com/dr.joeniosousa.adv'
 const NAV = [
   { href: '#sobre', label: 'Sobre' },
   { href: '#servicos', label: 'Atuação' },
+  { href: '#duvidas', label: 'Dúvidas' },
   { href: '#parcerias', label: 'Parcerias' },
 ]
 
@@ -21,8 +24,6 @@ const CREDENCIAIS = [
   { nivel: 'Pós-graduação', titulo: 'Direito Tributário', texto: 'Facuminas' },
   { nivel: 'Graduação em andamento', titulo: 'Ciências Biológicas', texto: 'Universidade Estadual do Ceará (UECE)' },
 ]
-
-const PILARES = ['Ética', 'Transparência', 'Especialização técnica']
 
 const svgProps = {
   viewBox: '0 0 24 24',
@@ -56,15 +57,6 @@ const instagramIcon = (
     <rect x="4" y="4" width="16" height="16" rx="5" /><circle cx="12" cy="12" r="3.3" /><circle cx="16.8" cy="7.2" r="0.7" fill="currentColor" stroke="none" />
   </svg>
 )
-
-const SERVICOS = [
-  { titulo: 'Planejamento Tributário', texto: 'Análise e estruturação legal das operações da empresa para identificar alternativas legítimas de otimização da carga fiscal e eficiência orçamentária.' },
-  { titulo: 'Compliance Tributário', texto: 'Auditoria e verificação do correto cumprimento das obrigações tributárias principais e acessórias, reduzindo passivos perante o Fisco.' },
-  { titulo: 'Recuperação de Créditos', texto: 'Diagnóstico minucioso para identificação e restituição ou compensação de valores pagos indevidamente ou a maior (Simples Nacional, Lucro Presumido e Lucro Real).' },
-  { titulo: 'Créditos Monofásicos & ICMS-ST', texto: 'Análise especializada para empresas que lidam com produtos sujeitos à tributação concentrada (monofásica) ou substituição tributária do ICMS.' },
-  { titulo: 'Equiparação Hospitalar', texto: 'Assessoria para clínicas médicas e odontológicas na verificação dos requisitos legais para fruição de benefícios e alíquotas reduzidas de IRPJ e CSLL.' },
-  { titulo: 'Defesa em Execuções Fiscais', texto: 'Atuação técnica e contenciosa na defesa de contribuintes e empresas em face de cobranças judiciais e inscrições em dívida ativa.' },
-]
 
 /** Badge circular navy + traço dourado, para seções sem ícone pronto no acervo - segue o mesmo tamanho/forma dos ícones em PNG. */
 function IconBadge({ children, className = 'h-8 w-8' }) {
@@ -119,9 +111,9 @@ function SectionLabel({ children, dark = false, icon }) {
 }
 
 /** White card with a thin gray border, for light sections. */
-function LightCard({ children, className = '' }) {
+function LightCard({ children, className = '', ...props }) {
   return (
-    <div className={`rounded-[var(--radius-card,20px)] border border-slate-300 bg-white p-6 shadow-sm transition hover:border-[var(--color-gold)]/70 ${className}`}>
+    <div {...props} className={`rounded-[var(--radius-card,20px)] border border-slate-300 bg-white p-6 shadow-sm transition hover:border-[var(--color-gold)]/70 ${className}`}>
       {children}
     </div>
   )
@@ -129,6 +121,13 @@ function LightCard({ children, className = '' }) {
 
 export default function Portfolio() {
   const [menuAberto, setMenuAberto] = useState(false)
+  const [servico, setServico] = useState(null)
+  const dialogRef = useRef(null)
+
+  // <dialog> nativo: Esc, foco e backdrop vêm de graça. O estado só guarda o conteúdo exibido.
+  useEffect(() => {
+    if (servico) dialogRef.current?.showModal()
+  }, [servico])
 
   return (
     <div className="font-brand min-h-screen bg-[var(--color-primary)] text-white">
@@ -255,17 +254,24 @@ export default function Portfolio() {
             <div className="grid items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
               <img src={emblemaCircular} alt="JS Advocacia e Consultoria Tributária" className="mx-auto h-48 w-48 object-contain sm:h-56 sm:w-56" />
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-gold)]">Nossos pilares</p>
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-gold)]">Nossos valores</p>
                 <div className="mt-6 grid gap-5 sm:grid-cols-3">
-                  {PILARES.map((titulo) => (
-                    <LightCard key={titulo} className="border-t-2 border-t-[var(--color-gold)]">
-                      <h3 className="text-lg font-bold text-[var(--color-primary-dark)]">{titulo}</h3>
+                  {VALORES.map((v) => (
+                    <LightCard key={v.titulo} className="reveal border-t-2 border-t-[var(--color-gold)]">
+                      <h3 className="text-lg font-bold text-[var(--color-primary-dark)]">{v.titulo}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">{v.texto}</p>
                     </LightCard>
                   ))}
                 </div>
-                <p className="mt-6 text-sm leading-relaxed text-slate-600">
-                  Soluções jurídicas sob medida para o cenário empresarial moderno.
-                </p>
+                <p className="mt-8 text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-gold)]">Nossos pilares</p>
+                <div className="mt-6 grid gap-5 sm:grid-cols-3">
+                  {PILARES.map((v) => (
+                    <LightCard key={v.titulo} className="reveal">
+                      <h3 className="text-base font-bold text-[var(--color-primary-dark)]">{v.titulo}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">{v.texto}</p>
+                    </LightCard>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -318,14 +324,62 @@ export default function Portfolio() {
         <section id="servicos" className="border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
             <SectionLabel dark icon={ICONS.servicos}>Áreas de atuação</SectionLabel>
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-slate-600">
+              Informações gerais sobre cada área. Abra o item para ver do que se trata e em quais situações a análise costuma ser relevante.
+            </p>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {SERVICOS.map((s) => (
-                <LightCard key={s.titulo} className="p-8">
-                  <h3 className="text-base font-bold text-[var(--color-primary-dark)]">{s.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.texto}</p>
+              {SERVICOS.map((sv) => (
+                <LightCard
+                  key={sv.titulo}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setServico(sv)}
+                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), setServico(sv))}
+                  className="reveal flex cursor-pointer flex-col p-8 hover:shadow-md"
+                >
+                  <h3 className="text-base font-bold text-[var(--color-primary-dark)]">{sv.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{sv.resumo}</p>
+                  <span className="mt-auto pt-5 text-xs font-bold uppercase tracking-wide text-[var(--color-gold)]">+ Saiba mais</span>
                 </LightCard>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Como atuamos - slogan em três etapas */}
+        <section id="atuacao" className="textured-navy relative isolate overflow-hidden px-8 py-24 sm:px-12">
+          <img src={emblemaCircular} alt="" aria-hidden="true" className="pointer-events-none absolute -left-24 top-1/2 -z-10 w-[480px] max-w-none -translate-y-1/2 select-none opacity-[0.06]" />
+          <div className={CONTAINER}>
+            <SectionLabel icon={iconEstudos}>Como atuamos</SectionLabel>
+            <div className="mt-10 grid gap-8 md:grid-cols-3">
+              {ETAPAS.map((e) => (
+                <div key={e.n} className="reveal border-t border-[var(--color-gold)]/60 pt-5">
+                  <p className="font-display text-3xl italic text-[var(--color-gold)]">{e.n}</p>
+                  <h3 className="mt-3 text-lg font-bold text-white">{e.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{e.texto}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ informativo */}
+        <section id="duvidas" className="border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
+          <div className={CONTAINER}>
+            <SectionLabel dark icon={ICONS.servicos}>Dúvidas frequentes</SectionLabel>
+            <div className="mt-10 mx-auto flex max-w-3xl flex-col gap-4">
+              {FAQ.map((f) => (
+                <details key={f.p} className="group reveal rounded-[var(--radius-card,20px)] border border-slate-300 bg-white px-6 py-4 transition open:border-[var(--color-gold)]/70">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-[var(--color-primary-dark)] marker:hidden">
+                    {f.p}
+                    <span className="text-lg text-[var(--color-gold)] group-open:hidden">+</span>
+                    <span className="hidden text-lg text-[var(--color-gold)] group-open:inline">-</span>
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.r}</p>
+                </details>
+              ))}
+            </div>
+            <p className="mt-8 max-w-3xl text-xs leading-relaxed text-slate-500">{AVISO}</p>
           </div>
         </section>
 
@@ -357,6 +411,30 @@ export default function Portfolio() {
           </div>
         </section>
       </main>
+
+      <dialog
+        ref={dialogRef}
+        onClose={() => setServico(null)}
+        onClick={(e) => e.target === dialogRef.current && dialogRef.current.close()}
+        className="m-auto w-[min(92vw,36rem)] rounded-[var(--radius-card,20px)] border border-[var(--color-gold)]/60 bg-white p-0 text-slate-600 backdrop:bg-black/60"
+      >
+        {servico && (
+          <div className="p-8">
+            <div className="flex items-start justify-between gap-4">
+              <h3 className="text-lg font-bold text-[var(--color-primary-dark)]">{servico.titulo}</h3>
+              <button type="button" onClick={() => dialogRef.current.close()} aria-label="Fechar" className="text-2xl leading-none text-[var(--color-gold)] hover:text-[var(--color-gold-light)]">
+                ×
+              </button>
+            </div>
+            <span className="mt-3 block h-px w-12 bg-[var(--color-gold)]" />
+            <p className="mt-5 text-xs font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">Do que se trata</p>
+            <p className="mt-1 text-sm leading-relaxed">{servico.oQueE}</p>
+            <p className="mt-4 text-xs font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">Considerações</p>
+            <p className="mt-1 text-sm leading-relaxed">{servico.quando}</p>
+            <p className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">{AVISO}</p>
+          </div>
+        )}
+      </dialog>
 
       {/* Contato */}
       <footer id="contato" className="border-t border-[var(--color-gold)]/30 bg-[var(--color-primary)] px-8 py-16 sm:px-12">
@@ -396,6 +474,18 @@ export default function Portfolio() {
               </span>
             </a>
           </div>
+        </div>
+
+        <p className={`${CONTAINER} mt-10 text-center text-xs leading-relaxed text-slate-400 sm:text-left`}>{AVISO}</p>
+        <div className={`${CONTAINER} mt-6 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-400 sm:flex-row`}>
+          <p className="max-w-xl text-center sm:text-left">© {new Date().getFullYear()} JS Advocacia e Consultoria Tributária. Todos os direitos reservados.</p>
+          <nav className="flex gap-5">
+            {NAV.map((n) => (
+              <a key={n.href} href={n.href} className="uppercase tracking-wide hover:text-[var(--color-gold-light)]">
+                {n.label}
+              </a>
+            ))}
+          </nav>
         </div>
       </footer>
     </div>
