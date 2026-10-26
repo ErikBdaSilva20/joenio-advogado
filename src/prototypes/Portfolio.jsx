@@ -3,80 +3,27 @@ import heroBg from '../assets/portfolio/hero-bg.png'
 import profissional from '../assets/portfolio/profissional.png'
 import logoCompleto from '../assets/portfolio/logo-completo.png'
 import emblemaCircular from '../assets/portfolio/emblema-circular.png'
-import iconEstudos from '../assets/portfolio/icons/icon-estudos.png'
 import iconSobre from '../assets/portfolio/icons/icon-sobre.png'
 import iconContato from '../assets/portfolio/icons/icon-contato.png'
-import iconCredito from '../assets/portfolio/icons/icon-credito.png'
-import iconDireito from '../assets/portfolio/icons/icon-direito.png'
-import iconSaude from '../assets/portfolio/icons/icon-saude.png'
 
 const CONTAINER = 'mx-auto max-w-6xl'
+const WHATSAPP_URL = 'https://wa.me/5588996805117'
+const INSTAGRAM_URL = 'https://instagram.com/dr.joeniosousa.adv'
 
 const NAV = [
   { href: '#sobre', label: 'Sobre' },
-  { href: '#metodo', label: 'Método' },
-  { href: '#servicos', label: 'Serviços' },
-  { href: '#publico', label: 'Para quem' },
+  { href: '#servicos', label: 'Atuação' },
+  { href: '#parcerias', label: 'Parcerias' },
   { href: '#contato', label: 'Contato' },
 ]
 
 const CREDENCIAIS = [
-  { titulo: 'Lorem Ipsum', texto: 'Lorem dolor sit — Nome Instituição' },
-  { titulo: 'Lorem Ipsum', texto: 'Nome Instituição' },
-  { titulo: 'Lorem Ipsum', texto: 'Lorem — Nome Instituição' },
-  { titulo: 'Lorem Ipsum', texto: 'Lorem dolor sit amet' },
+  { titulo: 'Graduado em Direito', texto: 'UNINTA' },
+  { titulo: 'Pós-graduado em Direito Tributário', texto: 'Facuminas' },
+  { titulo: 'Graduando em Ciências Biológicas', texto: 'Universidade Estadual do Ceará (UECE)' },
 ]
 
-const FORMACAO = [
-  { ano: 'Lorem', titulo: 'Lorem ipsum dolor sit amet', local: 'Nome Instituição' },
-  { ano: 'Lorem', titulo: 'Lorem ipsum dolor sit amet consectetur', local: 'Nome Instituição' },
-  { ano: 'Lorem', titulo: 'Lorem ipsum dolor', local: 'Nome Instituição' },
-]
-
-const PILARES = [
-  {
-    titulo: 'Lorem',
-    texto: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-    detalhe: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — ut enim ad minim veniam quis nostrud exercitation ullamco.',
-  },
-  {
-    titulo: 'Ipsum',
-    texto: 'Duis aute irure dolor in reprehenderit in voluptate velit.',
-    detalhe: 'Esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident — sunt in culpa qui officia deserunt.',
-  },
-  {
-    titulo: 'Dolor',
-    texto: 'Mollit anim id est laborum ut perspiciatis unde omnis.',
-    detalhe: 'Iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis.',
-  },
-]
-
-const METODO = [
-  {
-    passo: '01',
-    titulo: 'Lorem',
-    texto: 'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do.',
-    detalhe: 'Eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud.',
-  },
-  {
-    passo: '02',
-    titulo: 'Ipsum',
-    texto: 'Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    detalhe: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-  },
-  {
-    passo: '03',
-    titulo: 'Dolor',
-    texto: 'Excepteur sint occaecat cupidatat non proident sunt in culpa.',
-    detalhe: 'Qui officia deserunt mollit anim id est laborum ut perspiciatis unde omnis iste natus error sit.',
-  },
-  {
-    passo: '04',
-    titulo: 'Sit Amet',
-    texto: 'Voluptatem accusantium doloremque laudantium totam rem aperiam eaque.',
-    detalhe: 'Ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim.',
-  },
-]
+const PILARES = ['Ética', 'Transparência', 'Especialização técnica']
 
 const svgProps = {
   viewBox: '0 0 24 24',
@@ -88,29 +35,17 @@ const svgProps = {
 }
 
 const ICONS = {
-  metodo: (
-    <svg {...svgProps} className="h-4 w-4"><path d="M4 6h16M4 12h11M4 18h7" /></svg>
-  ),
   diferenciais: (
     <svg {...svgProps} className="h-4 w-4"><path d="M12 3 5 6v5c0 4.2 3 7.6 7 9 4-1.4 7-4.8 7-9V6l-7-3Z" /></svg>
   ),
   servicos: (
     <svg {...svgProps} className="h-4 w-4"><path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z" /><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" /></svg>
   ),
-  publico: (
+  parcerias: (
     <svg {...svgProps} className="h-4 w-4"><circle cx="9" cy="8" r="3" /><path d="M4 19c0-3 2.2-5 5-5s5 2 5 5" /><circle cx="17.5" cy="9.5" r="2.2" /><path d="M15 19c0-2 1.1-3.6 3-4.2" /></svg>
-  ),
-  pessoaFisica: (
-    <svg {...svgProps} className="h-3.5 w-3.5"><circle cx="12" cy="8" r="3.2" /><path d="M5.5 20c0-4 2.9-6.3 6.5-6.3s6.5 2.3 6.5 6.3" /></svg>
-  ),
-  contencioso: (
-    <svg {...svgProps} className="h-3.5 w-3.5"><path d="M12 3 4 7.5h16L12 3Z" /><path d="M5.5 10.5V19M9.5 10.5V19M14.5 10.5V19M18.5 10.5V19M3 19h18" /></svg>
   ),
   instagram: (
     <svg {...svgProps} className="h-4.5 w-4.5"><rect x="4" y="4" width="16" height="16" rx="5" /><circle cx="12" cy="12" r="3.3" /><circle cx="16.3" cy="7.7" r="0.6" fill="var(--color-gold)" stroke="none" /></svg>
-  ),
-  redes: (
-    <svg {...svgProps} className="h-4.5 w-4.5"><circle cx="12" cy="12" r="8" /><path d="M4 12h16M12 4c2.3 2.3 2.3 13.7 0 16M12 4c-2.3 2.3-2.3 13.7 0 16" /></svg>
   ),
 }
 
@@ -120,65 +55,13 @@ const whatsappIcon = (
   </svg>
 )
 
-const SERVICOS_GRUPOS = [
-  {
-    categoria: 'Lorem Ipsum',
-    icon: iconDireito,
-    itens: [
-      { titulo: 'Lorem Ipsum', texto: 'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.' },
-      { titulo: 'Dolor Sit Amet', texto: 'Incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.' },
-    ],
-  },
-  {
-    categoria: 'Consectetur Adipiscing',
-    icon: iconCredito,
-    itens: [
-      { titulo: 'Lorem', texto: 'Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.' },
-      { titulo: 'Ipsum', texto: 'Consequat duis aute irure dolor in reprehenderit in voluptate velit.' },
-      { titulo: 'Dolor', texto: 'Esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.' },
-      { titulo: 'Sit', texto: 'Cupidatat non proident sunt in culpa qui officia deserunt mollit anim.' },
-      { titulo: 'Amet', texto: 'Id est laborum ut perspiciatis unde omnis iste natus error sit voluptatem.' },
-    ],
-  },
-  {
-    categoria: 'Lorem Dolor',
-    icon: ICONS.pessoaFisica,
-    itens: [
-      { titulo: 'Lorem Ipsum Dolor Sit Amet', texto: 'Accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore. Veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem.' },
-    ],
-  },
-  {
-    categoria: 'Lorem',
-    icon: iconSaude,
-    itens: [
-      { titulo: 'Lorem Ipsum Dolor', texto: 'Quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.' },
-    ],
-  },
-  {
-    categoria: 'Ipsum Dolor',
-    icon: ICONS.contencioso,
-    itens: [
-      { titulo: 'Lorem Ipsum', texto: 'Eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem.' },
-    ],
-  },
-]
-
-const SEGMENTOS = [
-  {
-    titulo: 'Lorem',
-    texto: 'Ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.',
-    detalhe: 'Ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.',
-  },
-  {
-    titulo: 'Ipsum',
-    texto: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
-    detalhe: 'Eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia.',
-  },
-  {
-    titulo: 'Dolor',
-    texto: 'Deserunt mollit anim id est laborum ut perspiciatis unde omnis iste natus.',
-    detalhe: 'Error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo.',
-  },
+const SERVICOS = [
+  { titulo: 'Planejamento Tributário', texto: 'Análise e estruturação legal das operações da empresa para identificar alternativas legítimas de otimização da carga fiscal e eficiência orçamentária.' },
+  { titulo: 'Compliance Tributário', texto: 'Auditoria e verificação do correto cumprimento das obrigações tributárias principais e acessórias, reduzindo passivos perante o Fisco.' },
+  { titulo: 'Recuperação de Créditos', texto: 'Diagnóstico minucioso para identificação e restituição ou compensação de valores pagos indevidamente ou a maior (Simples Nacional, Lucro Presumido e Lucro Real).' },
+  { titulo: 'Créditos Monofásicos & ICMS-ST', texto: 'Análise especializada para empresas que lidam com produtos sujeitos à tributação concentrada (monofásica) ou substituição tributária do ICMS.' },
+  { titulo: 'Equiparação Hospitalar', texto: 'Assessoria para clínicas médicas e odontológicas na verificação dos requisitos legais para fruição de benefícios e alíquotas reduzidas de IRPJ e CSLL.' },
+  { titulo: 'Defesa em Execuções Fiscais', texto: 'Atuação técnica e contenciosa na defesa de contribuintes e empresas em face de cobranças judiciais e inscrições em dívida ativa.' },
 ]
 
 /** Badge circular navy + traço dourado, para seções sem ícone pronto no acervo — segue o mesmo tamanho/forma dos ícones em PNG. */
@@ -224,10 +107,10 @@ export default function Portfolio() {
       <header className="sticky top-0 z-20 border-b border-[var(--color-gold)]/30 bg-[var(--color-primary)]/95 px-6 py-4 backdrop-blur sm:px-12">
         <div className={`${CONTAINER} flex items-center justify-between`}>
           <div className="flex items-center gap-3">
-            <img src={logoCompleto} alt="Lorem Ipsum" className="h-10 w-10 rounded-full border border-[var(--color-gold)]/50 object-cover" />
+            <img src={logoCompleto} alt="JS Advocacia e Consultoria Tributária" className="h-10 w-10 rounded-full border border-[var(--color-gold)]/50 object-cover" />
             <div className="leading-tight">
-              <p className="text-xs font-bold tracking-wide text-white sm:text-sm">NOME SOBRENOME</p>
-              <p className="text-xs text-slate-300">Lorem Ipsum Dolor</p>
+              <p className="text-xs font-bold tracking-wide text-white sm:text-sm">JS ADVOCACIA</p>
+              <p className="text-xs text-slate-300">Consultoria Tributária</p>
             </div>
           </div>
           <nav className="hidden items-center gap-7 md:flex">
@@ -239,7 +122,7 @@ export default function Portfolio() {
           </nav>
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/5500000000000"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
               className="hidden rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-gold-light)] sm:inline-block"
@@ -273,7 +156,7 @@ export default function Portfolio() {
               </a>
             ))}
             <a
-              href="https://wa.me/5500000000000"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
               className="inline-block w-fit rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-gold-light)]"
@@ -308,34 +191,34 @@ export default function Portfolio() {
           <div className={`${CONTAINER} relative z-10 grid gap-10 px-6 pt-16 pb-0 sm:gap-12 sm:px-12 sm:pt-20 sm:pb-0 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:py-0`}>
             <div className="relative z-10 flex flex-col justify-center py-4 sm:py-8 lg:py-28">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-gold-light)]">
-                Lorem · Ipsum · Dolor
+                Dr. Joenio de Sousa Santos
               </p>
-              <h1 className="font-display mt-5 text-3xl italic font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-                Nome Sobrenome
+              <h1 className="font-display mt-5 text-3xl italic font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                JS Advocacia e Consultoria Tributária
               </h1>
               <span className="mt-4 block h-px w-16 bg-[var(--color-gold)]" />
               <p className="font-display mt-4 text-base font-semibold text-[var(--color-gold-light)] sm:text-lg md:text-xl">
-                Lorem Ipsum Dolor Sit
+                Planejar, proteger e otimizar.
               </p>
               <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-200 sm:text-base">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua ut enim.
+                Atuação jurídica estratégica e preventiva voltada à gestão fiscal, conformidade
+                legal e segurança de patrimônios empresariais e civis.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://wa.me/5500000000000"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-gold-light)] sm:px-7"
                 >
                   {whatsappIcon}
-                  Falar no WhatsApp
+                  WhatsApp
                 </a>
                 <a
                   href="#servicos"
                   className="inline-block rounded-[var(--radius-pill,999px)] border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[var(--color-primary)] sm:px-7"
                 >
-                  Ver serviços
+                  Áreas de atuação
                 </a>
               </div>
             </div>
@@ -344,7 +227,7 @@ export default function Portfolio() {
             <div className="relative z-10 -mx-6 h-[360px] sm:-mx-12 sm:h-[460px] md:h-[520px] lg:mx-0 lg:h-[660px]">
               <img
                 src={profissional}
-                alt="Nome Sobrenome"
+                alt="Dr. Joenio de Sousa Santos"
                 className="absolute inset-0 h-full w-full object-cover object-top [mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_82%,transparent_100%)] min-[800px]:[mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%)] min-[800px]:[-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%)] lg:[mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[mask-composite:intersect] lg:[-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_10%,black_100%),linear-gradient(to_right,transparent_0,black_18%)] lg:[-webkit-mask-composite:source-in]"
               />
             </div>
@@ -353,7 +236,7 @@ export default function Portfolio() {
 
         {/* Credenciais */}
         <section className="textured-navy border-y border-[var(--color-gold)]/30 px-8 py-10 sm:px-12">
-          <div className={`${CONTAINER} grid grid-cols-2 gap-6 lg:grid-cols-4`}>
+          <div className={`${CONTAINER} grid grid-cols-1 gap-6 sm:grid-cols-3`}>
             {CREDENCIAIS.map((c) => (
               <div key={c.titulo} className="border-l-2 border-[var(--color-gold)] pl-4">
                 <p className="text-sm font-bold text-white">{c.titulo}</p>
@@ -366,48 +249,28 @@ export default function Portfolio() {
         {/* Sobre — único respiro claro, estilo "carrossel branco" do Instagram: fundo branco, linhas douradas finas */}
         <section id="sobre" className="relative border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
-            <SectionLabel dark icon={iconSobre}>Quem sou eu</SectionLabel>
+            <SectionLabel dark icon={iconSobre}>O escritório</SectionLabel>
             <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
               <p className="text-lg leading-relaxed text-[var(--color-primary-dark)]">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.
+                Fundado sob os pilares da ética, transparência e especialização técnica, o escritório
+                JS Advocacia e Consultoria Tributária nasceu com o propósito de oferecer soluções
+                jurídicas sob medida para o cenário empresarial moderno.
               </p>
-              <p className="text-sm leading-relaxed text-slate-600">
-                Veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur.
-              </p>
-            </div>
-
-            <div className="mt-14 flex items-center gap-3 border-t border-[var(--color-silver)] pt-10">
-              <img src={iconEstudos} alt="" aria-hidden="true" className="h-8 w-8 rounded-full" />
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-gold)]">Formação Acadêmica</p>
-            </div>
-            <div className="mt-6 grid gap-6 sm:grid-cols-3">
-              {FORMACAO.map((f) => (
-                <div key={f.titulo}>
-                  <p className="text-xs font-bold uppercase tracking-wide text-[var(--color-gold)]">{f.ano}</p>
-                  <h3 className="mt-2 text-sm font-bold text-[var(--color-primary)]">{f.titulo}</h3>
-                  <p className="mt-1 text-sm text-slate-500">{f.local}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Método */}
-        <section id="metodo" className="textured-navy px-8 py-24 sm:px-12">
-          <div className={CONTAINER}>
-            <SectionLabel icon={ICONS.metodo}>Como funciona</SectionLabel>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {METODO.map((m) => (
-                <NavyCard key={m.passo}>
-                  <span className="font-brand text-3xl font-bold text-[var(--color-gold)]">{m.passo}</span>
-                  <h3 className="mt-4 text-lg font-bold text-white">{m.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{m.texto}</p>
-                  <p className="mt-3 border-t border-white/10 pt-3 text-sm leading-relaxed text-slate-400">{m.detalhe}</p>
-                </NavyCard>
-              ))}
+              <div className="space-y-4 text-sm leading-relaxed text-slate-600">
+                <p>
+                  O escritório é liderado pelo Dr. Joenio de Sousa Santos, advogado e professor,
+                  graduado em Direito pela UNINTA e pós-graduado em Direito Tributário pela Facuminas.
+                  Com sólida formação acadêmica e também graduando em Ciências Biológicas pela
+                  Universidade Estadual do Ceará (UECE), o Dr. Joenio alia o rigor técnico do Direito
+                  à compreensão aprofundada de estruturas organizacionais e de saúde, garantindo uma
+                  visão estratégica diferenciada a cada caso.
+                </p>
+                <p>
+                  Nossa missão é guiar contribuintes e corporações por meio de uma advocacia
+                  consultiva e preventiva forte, mitigando riscos e promovendo a justiça fiscal com
+                  segurança jurídica.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -415,13 +278,11 @@ export default function Portfolio() {
         {/* Diferenciais */}
         <section id="diferenciais" className="bg-[var(--color-primary-dark)] px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
-            <SectionLabel icon={ICONS.diferenciais}>Diferenciais</SectionLabel>
+            <SectionLabel icon={ICONS.diferenciais}>Pilares</SectionLabel>
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
-              {PILARES.map((p) => (
-                <NavyCard key={p.titulo}>
-                  <h3 className="text-lg font-bold text-white">{p.titulo}</h3>
-                  <p className="mt-2 text-sm font-semibold leading-relaxed text-[var(--color-gold-light)]">{p.texto}</p>
-                  <p className="mt-3 border-t border-white/10 pt-3 text-sm leading-relaxed text-slate-300">{p.detalhe}</p>
+              {PILARES.map((titulo) => (
+                <NavyCard key={titulo}>
+                  <h3 className="text-lg font-bold text-white">{titulo}</h3>
                 </NavyCard>
               ))}
             </div>
@@ -431,88 +292,41 @@ export default function Portfolio() {
         {/* Serviços */}
         <section id="servicos" className="textured-navy px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
-            <SectionLabel icon={ICONS.servicos}>Serviços</SectionLabel>
-
-            <div className="mt-10 space-y-16">
-              {SERVICOS_GRUPOS.map((grupo) => {
-                const categoriaLabel = (
-                  <div className="flex items-center gap-3">
-                    {typeof grupo.icon === 'string' ? (
-                      <img src={grupo.icon} alt="" aria-hidden="true" className="h-9 w-9 rounded-full" />
-                    ) : grupo.icon ? (
-                      <IconBadge className="h-9 w-9">{grupo.icon}</IconBadge>
-                    ) : null}
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-gold-light)]">
-                      {grupo.categoria}
-                    </h3>
-                  </div>
-                )
-
-                if (grupo.itens.length === 1) {
-                  const item = grupo.itens[0]
-                  return (
-                    <div key={grupo.categoria}>
-                      {categoriaLabel}
-                      <NavyCard className="mt-5 sm:flex sm:items-center sm:gap-8">
-                        <h4 className="text-xl font-bold text-white sm:w-1/3 sm:shrink-0">{item.titulo}</h4>
-                        <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:mt-0 sm:border-l sm:border-white/10 sm:pl-8 sm:text-base">
-                          {item.texto}
-                        </p>
-                      </NavyCard>
-                    </div>
-                  )
-                }
-
-                return (
-                  <div key={grupo.categoria}>
-                    {categoriaLabel}
-                    <div className="mt-5 grid gap-6 sm:grid-cols-2">
-                      {grupo.itens.map((s) => (
-                        <NavyCard key={s.titulo}>
-                          <h4 className="text-base font-bold text-white">{s.titulo}</h4>
-                          <p className="mt-2 text-sm leading-relaxed text-slate-300">{s.texto}</p>
-                        </NavyCard>
-                      ))}
-                    </div>
-                  </div>
-                )
-              })}
+            <SectionLabel icon={ICONS.servicos}>Áreas de atuação</SectionLabel>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {SERVICOS.map((s) => (
+                <NavyCard key={s.titulo}>
+                  <h3 className="text-base font-bold text-white">{s.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{s.texto}</p>
+                </NavyCard>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Para quem + Parcerias + Frase de impacto — bloco único claro, mesmo estilo do "Sobre" */}
-        <section id="publico" className="relative border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
+        {/* Parcerias + tagline — light block, same style as "Sobre" */}
+        <section id="parcerias" className="relative border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
-            <SectionLabel dark icon={ICONS.publico}>Para quem trabalho</SectionLabel>
-            <div className="mt-10 grid gap-8 sm:grid-cols-3">
-              {SEGMENTOS.map((s) => (
-                <div key={s.titulo} className="border-l-2 border-[var(--color-gold)] pl-5">
-                  <h3 className="text-lg font-bold text-[var(--color-primary-dark)]">{s.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.texto}</p>
-                  <p className="mt-3 border-t border-[var(--color-silver)] pt-3 text-sm leading-relaxed text-slate-500">{s.detalhe}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-14 flex flex-col items-start gap-4 rounded-[var(--radius-card,20px)] border border-[var(--color-gold)] bg-[var(--color-primary)]/[0.04] px-8 py-8 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm leading-relaxed text-[var(--color-primary-dark)] sm:max-w-xl">
-                <span className="font-bold text-[var(--color-gold)]">Lorem Ipsum:</span> dolor sit
-                amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.
+            <SectionLabel dark icon={ICONS.parcerias}>Advocacia Colaborativa</SectionLabel>
+            <h2 className="mt-10 text-2xl font-bold text-[var(--color-primary-dark)]">Parcerias Estratégicas</h2>
+            <div className="mt-6 grid gap-10 lg:grid-cols-2">
+              <p className="text-base leading-relaxed text-[var(--color-primary-dark)]">
+                Entendemos que a excelência na gestão fiscal exige a união de saberes. Por isso, a JS
+                Advocacia mantém as portas abertas para a construção de parcerias sólidas com
+                contadores, escritórios de contabilidade e colegas advogados.
               </p>
-              <a
-                href="https://wa.me/5500000000000"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-block whitespace-nowrap rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-gold-light)]"
-              >
-                Conversar →
-              </a>
+              <p className="text-sm leading-relaxed text-slate-600">
+                Atuamos de forma conjunta e complementar em demandas de alta complexidade, como
+                recuperação de créditos tributários e planejamentos fiscais avançados, respeitando
+                rigorosamente a ética e a autonomia profissional de cada parceiro. Se você deseja
+                agregar soluções tributárias especializadas à atuação do seu escritório, entre em
+                contato para avaliarmos uma atuação coordenada.
+              </p>
             </div>
 
-            <div className="mt-10 border-t border-[var(--color-silver)] pt-10 text-center">
+            <div className="mt-14 border-t border-[var(--color-silver)] pt-10 text-center">
               <p className="mx-auto max-w-2xl text-xl font-bold leading-relaxed text-[var(--color-primary-dark)] sm:text-2xl">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+                "Planejar, proteger e otimizar."
               </p>
             </div>
           </div>
@@ -523,16 +337,17 @@ export default function Portfolio() {
       <footer id="contato" className="border-t border-[var(--color-gold)]/30 bg-[var(--color-primary)] px-8 py-16 sm:px-12">
         <div className={`${CONTAINER} grid gap-10 sm:grid-cols-[auto_1fr] sm:items-center`}>
           <div className="flex items-center gap-3">
-            <img src={logoCompleto} alt="Lorem Ipsum" className="h-14 w-14 rounded-full border border-[var(--color-gold)]/50 object-cover" />
+            <img src={logoCompleto} alt="JS Advocacia e Consultoria Tributária" className="h-14 w-14 rounded-full border border-[var(--color-gold)]/50 object-cover" />
             <div className="leading-tight">
-              <p className="text-sm font-bold text-white">Lorem Ipsum</p>
-              <p className="text-xs text-slate-300">e Dolor Sit Amet</p>
+              <p className="text-sm font-bold text-white">JS Advocacia</p>
+              <p className="text-xs text-slate-300">e Consultoria Tributária</p>
             </div>
           </div>
 
-          <div className="grid gap-4 border-t border-white/10 pt-8 sm:border-t-0 sm:border-l sm:border-white/10 sm:pl-10 sm:pt-0 md:grid-cols-3">
+          <div className="grid gap-4 border-t border-white/10 pt-8 sm:border-t-0 sm:border-l sm:border-white/10 sm:pl-10 sm:pt-0 md:grid-cols-2">
+            {/* E-mail and OAB number pending from the client; add here once provided. */}
             <a
-              href="https://wa.me/5500000000000"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 text-sm text-slate-300 hover:text-white"
@@ -540,11 +355,11 @@ export default function Portfolio() {
               <img src={iconContato} alt="" aria-hidden="true" className="h-9 w-9 rounded-full" />
               <span>
                 <span className="block text-xs font-bold uppercase tracking-wide text-[var(--color-gold-light)]">WhatsApp</span>
-                (00) 00000-0000
+                (88) 99680-5117
               </span>
             </a>
             <a
-              href="https://instagram.com/lorem.ipsum"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 text-sm text-slate-300 hover:text-white"
@@ -552,16 +367,9 @@ export default function Portfolio() {
               <IconBadge className="h-9 w-9">{ICONS.instagram}</IconBadge>
               <span>
                 <span className="block text-xs font-bold uppercase tracking-wide text-[var(--color-gold-light)]">Instagram</span>
-                @lorem.ipsum
+                @dr.joeniosousa.adv
               </span>
             </a>
-            <div className="flex items-center gap-3 text-sm text-slate-300">
-              <IconBadge className="h-9 w-9">{ICONS.redes}</IconBadge>
-              <span>
-                <span className="block text-xs font-bold uppercase tracking-wide text-[var(--color-gold-light)]">Também em</span>
-                Facebook · LinkedIn
-              </span>
-            </div>
           </div>
         </div>
       </footer>
