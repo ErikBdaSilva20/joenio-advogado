@@ -366,7 +366,7 @@ export default function Portfolio() {
         {/* FAQ informativo */}
         <section id="duvidas" className="border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
-            <SectionLabel dark icon={ICONS.servicos}>Dúvidas frequentes</SectionLabel>
+            <SectionLabel dark icon={ICONS.servicos}>Algumas dúvidas</SectionLabel>
             <div className="mt-10 mx-auto flex max-w-3xl flex-col gap-4">
               {FAQ.map((f) => (
                 <details key={f.p} className="group reveal rounded-[var(--radius-card,20px)] border border-slate-300 bg-white px-6 py-4 transition open:border-[var(--color-gold)]/70">
