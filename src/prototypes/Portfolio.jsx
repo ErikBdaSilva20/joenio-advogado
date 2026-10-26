@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import heroBg from '../assets/portfolio/hero-bg.png'
 import profissional from '../assets/portfolio/profissional.png'
-import logoCompleto from '../assets/portfolio/logo-completo.png'
+import logoBalanca from '../assets/portfolio/logo-balanca.png'
 import emblemaCircular from '../assets/portfolio/emblema-circular.png'
 import iconSobre from '../assets/portfolio/icons/icon-sobre.png'
 import iconContato from '../assets/portfolio/icons/icon-contato.png'
@@ -14,13 +14,12 @@ const NAV = [
   { href: '#sobre', label: 'Sobre' },
   { href: '#servicos', label: 'Atuação' },
   { href: '#parcerias', label: 'Parcerias' },
-  { href: '#contato', label: 'Contato' },
 ]
 
 const CREDENCIAIS = [
-  { titulo: 'Graduado em Direito', texto: 'UNINTA' },
-  { titulo: 'Pós-graduado em Direito Tributário', texto: 'Facuminas' },
-  { titulo: 'Graduando em Ciências Biológicas', texto: 'Universidade Estadual do Ceará (UECE)' },
+  { nivel: 'Graduação', titulo: 'Direito', texto: 'UNINTA' },
+  { nivel: 'Pós-graduação', titulo: 'Direito Tributário', texto: 'Facuminas' },
+  { nivel: 'Graduação em andamento', titulo: 'Ciências Biológicas', texto: 'Universidade Estadual do Ceará (UECE)' },
 ]
 
 const PILARES = ['Ética', 'Transparência', 'Especialização técnica']
@@ -35,9 +34,6 @@ const svgProps = {
 }
 
 const ICONS = {
-  diferenciais: (
-    <svg {...svgProps} className="h-4 w-4"><path d="M12 3 5 6v5c0 4.2 3 7.6 7 9 4-1.4 7-4.8 7-9V6l-7-3Z" /></svg>
-  ),
   servicos: (
     <svg {...svgProps} className="h-4 w-4"><path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z" /><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" /></svg>
   ),
@@ -55,6 +51,12 @@ const whatsappIcon = (
   </svg>
 )
 
+const instagramIcon = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+    <rect x="4" y="4" width="16" height="16" rx="5" /><circle cx="12" cy="12" r="3.3" /><circle cx="16.8" cy="7.2" r="0.7" fill="currentColor" stroke="none" />
+  </svg>
+)
+
 const SERVICOS = [
   { titulo: 'Planejamento Tributário', texto: 'Análise e estruturação legal das operações da empresa para identificar alternativas legítimas de otimização da carga fiscal e eficiência orçamentária.' },
   { titulo: 'Compliance Tributário', texto: 'Auditoria e verificação do correto cumprimento das obrigações tributárias principais e acessórias, reduzindo passivos perante o Fisco.' },
@@ -64,12 +66,39 @@ const SERVICOS = [
   { titulo: 'Defesa em Execuções Fiscais', texto: 'Atuação técnica e contenciosa na defesa de contribuintes e empresas em face de cobranças judiciais e inscrições em dívida ativa.' },
 ]
 
-/** Badge circular navy + traço dourado, para seções sem ícone pronto no acervo — segue o mesmo tamanho/forma dos ícones em PNG. */
+/** Badge circular navy + traço dourado, para seções sem ícone pronto no acervo - segue o mesmo tamanho/forma dos ícones em PNG. */
 function IconBadge({ children, className = 'h-8 w-8' }) {
   return (
     <span className={`flex shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] ${className}`}>
       {children}
     </span>
+  )
+}
+
+/** The source art sits in a large white margin; the zoom crops it to the circle so the mark reads as a round badge. */
+function LogoBadge({ className }) {
+  return (
+    <span className={`block shrink-0 overflow-hidden rounded-full border-2 border-[var(--color-gold)]/60 bg-white ${className}`}>
+      <img src={logoBalanca} alt="JS Advocacia e Consultoria Tributária" className="h-full w-full scale-[1.7] object-cover" />
+    </span>
+  )
+}
+
+const BTN = 'inline-flex items-center gap-2 rounded-[var(--radius-pill,999px)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow-md'
+
+/** WhatsApp (branco) + Instagram (amarelo) - usados no header e no menu mobile. */
+function ContactButtons({ className = '' }) {
+  return (
+    <div className={`items-center gap-3 ${className}`}>
+      <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={`${BTN} bg-white text-black hover:bg-slate-100`}>
+        {whatsappIcon}
+        WhatsApp
+      </a>
+      <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className={`${BTN} bg-yellow-400 text-black hover:bg-yellow-300`}>
+        {instagramIcon}
+        Instagram
+      </a>
+    </div>
   )
 }
 
@@ -89,10 +118,10 @@ function SectionLabel({ children, dark = false, icon }) {
   )
 }
 
-/** Card translúcido com borda dourada fina, para uso sobre fundo azul (igual aos carrosséis do Instagram). */
-function NavyCard({ children, className = '' }) {
+/** White card with a thin gray border, for light sections. */
+function LightCard({ children, className = '' }) {
   return (
-    <div className={`rounded-[var(--radius-card,20px)] border border-[var(--color-gold)]/40 bg-white/[0.04] p-8 backdrop-blur-sm transition hover:border-[var(--color-gold)]/70 hover:bg-white/[0.07] sm:p-9 ${className}`}>
+    <div className={`rounded-[var(--radius-card,20px)] border border-slate-300 bg-white p-6 shadow-sm transition hover:border-[var(--color-gold)]/70 ${className}`}>
       {children}
     </div>
   )
@@ -104,31 +133,24 @@ export default function Portfolio() {
   return (
     <div className="font-brand min-h-screen bg-[var(--color-primary)] text-white">
       {/* Header */}
-      <header className="sticky top-0 z-20 border-b border-[var(--color-gold)]/30 bg-[var(--color-primary)]/95 px-6 py-4 backdrop-blur sm:px-12">
+      <header className="sticky top-0 z-20 border-b border-[var(--color-gold)]/30 bg-[var(--color-primary)]/95 px-6 py-3 backdrop-blur sm:px-12">
         <div className={`${CONTAINER} flex items-center justify-between`}>
           <div className="flex items-center gap-3">
-            <img src={logoCompleto} alt="JS Advocacia e Consultoria Tributária" className="h-10 w-10 rounded-full border border-[var(--color-gold)]/50 object-cover" />
+            <LogoBadge className="h-12 w-12 sm:h-14 sm:w-14" />
             <div className="leading-tight">
-              <p className="text-xs font-bold tracking-wide text-white sm:text-sm">JS ADVOCACIA</p>
-              <p className="text-xs text-slate-300">Consultoria Tributária</p>
+              <p className="text-sm font-bold tracking-wide text-white sm:text-base">JS ADVOCACIA</p>
+              <p className="text-xs text-white sm:text-sm">Consultoria Tributária</p>
             </div>
           </div>
           <nav className="hidden items-center gap-7 md:flex">
             {NAV.map((n) => (
-              <a key={n.href} href={n.href} className="text-xs font-semibold uppercase tracking-wide text-slate-200 hover:text-[var(--color-gold-light)]">
+              <a key={n.href} href={n.href} className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[var(--color-gold-light)]">
                 {n.label}
               </a>
             ))}
           </nav>
           <div className="flex items-center gap-3">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="hidden rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-gold-light)] sm:inline-block"
-            >
-              WhatsApp
-            </a>
+            <ContactButtons className="hidden sm:flex" />
             <button
               type="button"
               onClick={() => setMenuAberto((v) => !v)}
@@ -150,27 +172,20 @@ export default function Portfolio() {
                 key={n.href}
                 href={n.href}
                 onClick={() => setMenuAberto(false)}
-                className="text-sm font-semibold uppercase tracking-wide text-slate-200 hover:text-[var(--color-gold-light)]"
+                className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[var(--color-gold-light)]"
               >
                 {n.label}
               </a>
             ))}
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-block w-fit rounded-[var(--radius-pill,999px)] bg-[var(--color-gold)] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-gold-light)]"
-            >
-              WhatsApp
-            </a>
+            <ContactButtons className="flex flex-wrap" />
           </nav>
         )}
       </header>
 
       <main>
-        {/* Hero — banner limpo (bannerHero) a 0.8 + emblema circular a 0.4 à direita */}
+        {/* Hero - banner limpo (bannerHero) a 0.8 + emblema circular a 0.4 à direita */}
         <section className="relative isolate overflow-hidden bg-[var(--color-primary-dark)]">
-          {/* Camada 1: banner — atrás de tudo */}
+          {/* Camada 1: banner - atrás de tudo */}
           <img
             src={heroBg}
             alt=""
@@ -179,7 +194,7 @@ export default function Portfolio() {
             style={{ zIndex: 0, opacity: 0.8 }}
           />
 
-          {/* Camada 2: emblema circular — independente do banner, acima dele */}
+          {/* Camada 2: emblema circular - independente do banner, acima dele */}
           <img
             src={emblemaCircular}
             alt=""
@@ -223,7 +238,7 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Foto sangrando direto no fundo navy, sem moldura/caixa. Máscara lateral só entra em lg, onde a coluna é estreita o bastante pra fazer sentido — em telas menores corta os ombros. */}
+            {/* Foto sangrando direto no fundo navy, sem moldura/caixa. Máscara lateral só entra em lg, onde a coluna é estreita o bastante pra fazer sentido - em telas menores corta os ombros. */}
             <div className="relative z-10 -mx-6 h-[360px] sm:-mx-12 sm:h-[460px] md:h-[520px] lg:mx-0 lg:h-[660px]">
               <img
                 src={profissional}
@@ -234,29 +249,53 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Credenciais */}
-        <section className="textured-navy border-y border-[var(--color-gold)]/30 px-8 py-10 sm:px-12">
-          <div className={`${CONTAINER} grid grid-cols-1 gap-6 sm:grid-cols-3`}>
-            {CREDENCIAIS.map((c) => (
-              <div key={c.titulo} className="border-l-2 border-[var(--color-gold)] pl-4">
-                <p className="text-sm font-bold text-white">{c.titulo}</p>
-                <p className="mt-1 text-xs text-slate-300">{c.texto}</p>
+        {/* Brand mark, pillars and credentials - light band so the navy "JS" stays legible */}
+        <section id="pilares" className="border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-20 sm:px-12">
+          <div className={CONTAINER}>
+            <div className="grid items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
+              <img src={emblemaCircular} alt="JS Advocacia e Consultoria Tributária" className="mx-auto h-48 w-48 object-contain sm:h-56 sm:w-56" />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-gold)]">Nossos pilares</p>
+                <div className="mt-6 grid gap-5 sm:grid-cols-3">
+                  {PILARES.map((titulo) => (
+                    <LightCard key={titulo} className="border-t-2 border-t-[var(--color-gold)]">
+                      <h3 className="text-lg font-bold text-[var(--color-primary-dark)]">{titulo}</h3>
+                    </LightCard>
+                  ))}
+                </div>
+                <p className="mt-6 text-sm leading-relaxed text-slate-600">
+                  Soluções jurídicas sob medida para o cenário empresarial moderno.
+                </p>
               </div>
-            ))}
+            </div>
+
+            <div className="mt-14 border-t border-[var(--color-silver)] pt-10">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-gold)]">Formação acadêmica</p>
+              <p className="mt-3 text-sm text-slate-600">Dr. Joenio de Sousa Santos, advogado e professor.</p>
+              <div className="mt-6 grid gap-5 sm:grid-cols-3">
+                {CREDENCIAIS.map((c) => (
+                  <LightCard key={c.titulo}>
+                    <p className="text-xs font-bold uppercase tracking-wide text-[var(--color-gold)]">{c.nivel}</p>
+                    <h3 className="mt-2 text-lg font-bold text-[var(--color-primary-dark)]">{c.titulo}</h3>
+                    <p className="mt-1 text-sm text-slate-500">{c.texto}</p>
+                  </LightCard>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Sobre — único respiro claro, estilo "carrossel branco" do Instagram: fundo branco, linhas douradas finas */}
-        <section id="sobre" className="relative border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
+        {/* Sobre */}
+        <section id="sobre" className="textured-navy px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
-            <SectionLabel dark icon={iconSobre}>O escritório</SectionLabel>
+            <SectionLabel icon={iconSobre}>O escritório</SectionLabel>
             <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
-              <p className="text-lg leading-relaxed text-[var(--color-primary-dark)]">
+              <p className="text-lg leading-relaxed text-white">
                 Fundado sob os pilares da ética, transparência e especialização técnica, o escritório
                 JS Advocacia e Consultoria Tributária nasceu com o propósito de oferecer soluções
                 jurídicas sob medida para o cenário empresarial moderno.
               </p>
-              <div className="space-y-4 text-sm leading-relaxed text-slate-600">
+              <div className="space-y-4 text-sm leading-relaxed text-slate-300">
                 <p>
                   O escritório é liderado pelo Dr. Joenio de Sousa Santos, advogado e professor,
                   graduado em Direito pela UNINTA e pós-graduado em Direito Tributário pela Facuminas.
@@ -275,47 +314,33 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Diferenciais */}
-        <section id="diferenciais" className="bg-[var(--color-primary-dark)] px-8 py-24 sm:px-12">
-          <div className={CONTAINER}>
-            <SectionLabel icon={ICONS.diferenciais}>Pilares</SectionLabel>
-            <div className="mt-10 grid gap-6 sm:grid-cols-3">
-              {PILARES.map((titulo) => (
-                <NavyCard key={titulo}>
-                  <h3 className="text-lg font-bold text-white">{titulo}</h3>
-                </NavyCard>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Serviços */}
-        <section id="servicos" className="textured-navy px-8 py-24 sm:px-12">
+        <section id="servicos" className="border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
-            <SectionLabel icon={ICONS.servicos}>Áreas de atuação</SectionLabel>
+            <SectionLabel dark icon={ICONS.servicos}>Áreas de atuação</SectionLabel>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {SERVICOS.map((s) => (
-                <NavyCard key={s.titulo}>
-                  <h3 className="text-base font-bold text-white">{s.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{s.texto}</p>
-                </NavyCard>
+                <LightCard key={s.titulo} className="p-8">
+                  <h3 className="text-base font-bold text-[var(--color-primary-dark)]">{s.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.texto}</p>
+                </LightCard>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Parcerias + tagline — light block, same style as "Sobre" */}
-        <section id="parcerias" className="relative border-y-2 border-[var(--color-gold)]/70 bg-white px-8 py-24 sm:px-12">
+        {/* Parcerias + tagline */}
+        <section id="parcerias" className="textured-navy px-8 py-24 sm:px-12">
           <div className={CONTAINER}>
-            <SectionLabel dark icon={ICONS.parcerias}>Advocacia Colaborativa</SectionLabel>
-            <h2 className="mt-10 text-2xl font-bold text-[var(--color-primary-dark)]">Parcerias Estratégicas</h2>
+            <SectionLabel icon={ICONS.parcerias}>Advocacia Colaborativa</SectionLabel>
+            <h2 className="mt-10 text-2xl font-bold text-white">Parcerias Estratégicas</h2>
             <div className="mt-6 grid gap-10 lg:grid-cols-2">
-              <p className="text-base leading-relaxed text-[var(--color-primary-dark)]">
+              <p className="text-base leading-relaxed text-white">
                 Entendemos que a excelência na gestão fiscal exige a união de saberes. Por isso, a JS
                 Advocacia mantém as portas abertas para a construção de parcerias sólidas com
                 contadores, escritórios de contabilidade e colegas advogados.
               </p>
-              <p className="text-sm leading-relaxed text-slate-600">
+              <p className="text-sm leading-relaxed text-slate-300">
                 Atuamos de forma conjunta e complementar em demandas de alta complexidade, como
                 recuperação de créditos tributários e planejamentos fiscais avançados, respeitando
                 rigorosamente a ética e a autonomia profissional de cada parceiro. Se você deseja
@@ -324,8 +349,8 @@ export default function Portfolio() {
               </p>
             </div>
 
-            <div className="mt-14 border-t border-[var(--color-silver)] pt-10 text-center">
-              <p className="mx-auto max-w-2xl text-xl font-bold leading-relaxed text-[var(--color-primary-dark)] sm:text-2xl">
+            <div className="mt-14 border-t border-white/10 pt-10 text-center">
+              <p className="mx-auto max-w-2xl text-xl font-bold leading-relaxed text-white sm:text-2xl">
                 "Planejar, proteger e otimizar."
               </p>
             </div>
@@ -337,7 +362,7 @@ export default function Portfolio() {
       <footer id="contato" className="border-t border-[var(--color-gold)]/30 bg-[var(--color-primary)] px-8 py-16 sm:px-12">
         <div className={`${CONTAINER} grid gap-10 sm:grid-cols-[auto_1fr] sm:items-center`}>
           <div className="flex items-center gap-3">
-            <img src={logoCompleto} alt="JS Advocacia e Consultoria Tributária" className="h-14 w-14 rounded-full border border-[var(--color-gold)]/50 object-cover" />
+            <LogoBadge className="h-16 w-16" />
             <div className="leading-tight">
               <p className="text-sm font-bold text-white">JS Advocacia</p>
               <p className="text-xs text-slate-300">e Consultoria Tributária</p>

@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 /* Brand tokens extracted from acervodados/README.md + acervodados/index.css
-   (JS Advocacia e Consultoria Tributária — navy / gold / white, minimalist, formal) */
+   (JS Advocacia e Consultoria Tributária - navy / gold / white, minimalist, formal) */
 :root {
   --color-primary: #0a2f66;
   --color-primary-dark: #071f45;
@@ -20,7 +20,7 @@
   font-family: var(--font-brand);
 }
 
-/* Fonte de destaque para o nome na hero — dá charme, diferencia do resto (sans-serif) */
+/* Fonte de destaque para o nome na hero - dá charme, diferencia do resto (sans-serif) */
 .font-display {
   font-family: 'Playfair Display', 'Georgia', serif;
 }
